@@ -14,29 +14,29 @@
             margin: 0;
             padding: 0;
             width: 100%;
-            min-height: 100%;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f6;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f2f2f6;
             display: flex;
             justify-content: center;
             padding: 20px;
         }
 
+        /* Desktop: same overall card structure */
         .card-container {
-            background-color: #fff;
             width: min(750px, 100%);
-            padding: 18px 20px 22px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background: #fff;
+            padding: 18px 22px 22px;
+            box-shadow: 0 4px 8px rgba(0,0,0,.10);
         }
 
         .header {
             display: flex;
             align-items: center;
+            width: 100%;
             margin-bottom: 5px;
-            min-width: 0;
         }
 
         .logo {
@@ -45,10 +45,10 @@
             flex: 0 0 70px;
             border: 1px solid #000;
             border-radius: 5px;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
             background: #fff;
         }
 
@@ -60,43 +60,51 @@
         }
 
         .college-info {
-            flex: 1 1 auto;
+            flex: 1;
             min-width: 0;
             text-align: center;
-            padding: 0 8px;
+            padding: 0 10px;
         }
 
         .college-info h1 {
+            margin: 0 0 4px;
             color: #d32f2f;
             font-size: 22px;
             line-height: 1.15;
-            margin: 0 0 5px 0;
-            font-weight: bold;
+            font-weight: 700;
         }
 
         .college-info h2 {
+            margin: 0;
             color: #d32f2f;
             font-size: 18px;
             line-height: 1.15;
-            margin: 0;
-            font-weight: bold;
+            font-weight: 700;
         }
 
         .sub-header {
             text-align: center;
-            font-size: 13px;
-            line-height: 1.2;
-            font-weight: bold;
             color: #555;
-            margin-top: 15px;
-            margin-bottom: 10px;
+            font-size: 12px;
+            line-height: 1.2;
+            font-weight: 700;
+            margin: 13px 0 9px;
+        }
+
+        .divider,
+        .footer-divider {
+            border-top: 1px solid #283593;
         }
 
         .divider {
-            border-top: 1px solid #283593;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
+        /*
+          The important part:
+          keep the details and photo side-by-side at every size.
+          Only the widths/fonts shrink on phones.
+        */
         .content {
             display: grid;
             grid-template-columns: minmax(0, 1fr) 25%;
@@ -111,19 +119,19 @@
         }
 
         .details-table td {
-            padding: 6px 0;
-            font-size: 13px;
+            padding: 5px 0;
+            font-size: 12.5px;
             line-height: 1.2;
             vertical-align: top;
             color: #000;
-            overflow-wrap: anywhere;
+            overflow-wrap: normal;
         }
 
         .details-table td:first-child {
-            font-weight: bold;
             width: 35%;
             padding-right: 8px;
-            overflow-wrap: normal;
+            font-weight: 700;
+            white-space: normal;
         }
 
         .photo-box-container {
@@ -131,26 +139,26 @@
             display: flex;
             flex-direction: column;
             align-items: flex-end;
-            padding-top: 2px;
+            padding-top: 1px;
         }
 
         .photo-box {
             width: 130px;
-            max-width: 100%;
             height: 150px;
+            max-width: 100%;
             border: 1px solid #000;
-            margin-bottom: 5px;
             display: flex;
             justify-content: center;
             align-items: center;
             color: #1976d2;
             font-size: 18px;
+            margin-bottom: 4px;
         }
 
         .sign-box {
             width: 130px;
-            max-width: 100%;
             height: 35px;
+            max-width: 100%;
             border: 1px solid #000;
             display: flex;
             justify-content: center;
@@ -162,186 +170,149 @@
         .footer {
             text-align: center;
             color: #d32f2f;
-            font-weight: bold;
+            font-weight: 700;
             font-size: 20px;
-            margin-top: 20px;
+            margin-top: 17px;
         }
 
         .footer-divider {
-            border-top: 1px solid #283593;
             margin-top: 8px;
         }
 
-        /* Tablet */
-        @media (max-width: 700px) {
+        /* Match the phone-sized reference */
+        @media (max-width: 600px) {
             body {
-                padding: 12px 8px;
-            }
-
-            .card-container {
-                width: 100%;
-                padding: 16px 14px 20px;
-            }
-
-            .college-info h1 {
-                font-size: 19px;
-            }
-
-            .college-info h2 {
-                font-size: 16px;
-            }
-
-            .sub-header {
-                font-size: 12px;
-                margin-top: 12px;
-            }
-
-            .details-table td {
-                font-size: 12px;
-                padding: 5px 0;
-            }
-
-            .photo-box {
-                width: 115px;
-                height: 130px;
-            }
-
-            .sign-box {
-                width: 115px;
-                height: 32px;
-            }
-        }
-
-        /* Phone: keep the exact same two-column format as the reference,
-           only reducing dimensions and font sizes. */
-        @media (max-width: 480px) {
-            body {
-                padding: 10px 5px;
+                padding: 14px 5px;
                 align-items: flex-start;
             }
 
             .card-container {
                 width: 100%;
-                padding: 12px 10px 16px;
-                box-shadow: 0 2px 7px rgba(0,0,0,0.10);
-            }
-
-            .header {
-                align-items: center;
+                padding: 17px 15px 18px;
+                box-shadow: 0 3px 8px rgba(0,0,0,.10);
             }
 
             .logo {
-                width: 62px;
-                height: 82px;
-                flex-basis: 62px;
+                width: 66px;
+                height: 90px;
+                flex-basis: 66px;
             }
 
             .college-info {
-                padding: 0 4px;
+                padding: 0 5px;
             }
 
             .college-info h1 {
-                font-size: clamp(14px, 4.7vw, 18px);
+                font-size: 20px;
                 line-height: 1.12;
-                margin-bottom: 3px;
             }
 
             .college-info h2 {
-                font-size: clamp(13px, 4.1vw, 16px);
+                font-size: 16px;
+                line-height: 1.15;
             }
 
             .sub-header {
-                font-size: 11px;
-                margin-top: 11px;
-                margin-bottom: 8px;
-                line-height: 1.25;
+                font-size: 10.5px;
+                margin: 12px 0 8px;
+                white-space: nowrap;
             }
 
             .divider {
-                margin-bottom: 10px;
+                margin-bottom: 8px;
             }
 
             .content {
                 grid-template-columns: minmax(0, 1fr) 28%;
+                column-gap: 8px;
+            }
+
+            .details-table td {
+                font-size: 11px;
+                line-height: 1.18;
+                padding: 4.5px 0;
+            }
+
+            .details-table td:first-child {
+                width: 37%;
+                padding-right: 5px;
+            }
+
+            .photo-box {
+                width: 108px;
+                height: 128px;
+                font-size: 17px;
+            }
+
+            .sign-box {
+                width: 108px;
+                height: 31px;
+                font-size: 17px;
+            }
+
+            .footer {
+                font-size: 20px;
+                margin-top: 15px;
+            }
+
+            .footer-divider {
+                margin-top: 8px;
+            }
+        }
+
+        /* Narrow phones: reduce text instead of allowing overlap */
+        @media (max-width: 430px) {
+            .card-container {
+                padding-left: 13px;
+                padding-right: 13px;
+            }
+
+            .logo {
+                width: 62px;
+                height: 84px;
+                flex-basis: 62px;
+            }
+
+            .college-info h1 {
+                font-size: 17px;
+            }
+
+            .college-info h2 {
+                font-size: 14px;
+            }
+
+            .sub-header {
+                font-size: 9.2px;
+            }
+
+            .content {
+                grid-template-columns: minmax(0, 1fr) 27%;
                 column-gap: 7px;
             }
 
             .details-table td {
-                font-size: 10.5px;
-                line-height: 1.25;
+                font-size: 10px;
                 padding: 4px 0;
             }
 
             .details-table td:first-child {
-                width: 40%;
-                padding-right: 5px;
-                white-space: nowrap;
-                overflow-wrap: normal;
-            }
-
-            .photo-box-container {
-                padding-top: 1px;
+                width: 38%;
+                padding-right: 4px;
             }
 
             .photo-box {
-                width: 100%;
-                height: 108px;
-                min-width: 80px;
-                margin-bottom: 4px;
-                font-size: 14px;
+                width: 94px;
+                height: 115px;
             }
 
             .sign-box {
-                width: 100%;
+                width: 94px;
                 height: 29px;
-                min-width: 80px;
-                font-size: 14px;
             }
 
             .footer {
-                font-size: 18px;
-                margin-top: 14px;
-            }
-
-            .footer-divider {
-                margin-top: 7px;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .card-container {
-                padding-left: 8px;
-                padding-right: 8px;
-            }
-
-            .logo {
-                width: 56px;
-                height: 76px;
-                flex-basis: 56px;
-            }
-
-            .college-info h1 {
-                font-size: 13px;
-            }
-
-            .college-info h2 {
-                font-size: 12px;
-            }
-
-            .details-table td {
-                font-size: 9.5px;
-            }
-
-            .photo-box {
-                height: 98px;
-            }
-
-            .sign-box {
-                height: 27px;
-            }
-
-            .footer {
-                font-size: 17px;
+                font-size: 19px;
+                margin-top: 13px;
             }
         }
     </style>
@@ -359,9 +330,7 @@
         </div>
     </div>
     
-    <div class="sub-header">
-       
-    </div>
+    <div class="sub-header">Following are the verified details against this IDENTITY CUM LIBRARY CARD</div>
     <div class="divider"></div>
 
     <div class="content">
