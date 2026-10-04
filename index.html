@@ -10,107 +10,130 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f2f2f6;
             display: flex;
             justify-content: center;
             padding: 20px;
-            margin: 0;
-            min-width: 0;
         }
 
         .card-container {
-            background-color: white;
-            width: 750px;
-            max-width: 100%;
-            padding: 25px 35px;
+            background-color: #fff;
+            width: min(750px, 100%);
+            padding: 18px 20px 22px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
+
         .header {
             display: flex;
             align-items: center;
             margin-bottom: 5px;
+            min-width: 0;
         }
+
         .logo {
-            width: 60px;
-            height: 80px;
+            width: 70px;
+            height: 90px;
+            flex: 0 0 70px;
             border: 1px solid #000;
             border-radius: 5px;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
-            font-weight: bold;
-        }
-        .logo img {
-            max-width: 100%;
-            height: auto;
-            object-fit: contain;
+            overflow: hidden;
+            background: #fff;
         }
 
-        .logo-circle {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            border: 1px solid #000;
-            margin-bottom: 5px;
-            background: conic-gradient(#4caf50 0% 33%, #ffeb3b 33% 66%, #2196f3 66% 100%);
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
         }
+
         .college-info {
-            flex-grow: 1;
+            flex: 1 1 auto;
+            min-width: 0;
             text-align: center;
+            padding: 0 8px;
         }
+
         .college-info h1 {
             color: #d32f2f;
             font-size: 22px;
+            line-height: 1.15;
             margin: 0 0 5px 0;
             font-weight: bold;
         }
+
         .college-info h2 {
             color: #d32f2f;
             font-size: 18px;
+            line-height: 1.15;
             margin: 0;
             font-weight: bold;
         }
+
         .sub-header {
             text-align: center;
             font-size: 13px;
+            line-height: 1.2;
             font-weight: bold;
-            color: #333;
+            color: #555;
             margin-top: 15px;
             margin-bottom: 10px;
         }
+
         .divider {
             border-top: 1px solid #283593;
             margin-bottom: 15px;
         }
+
         .content {
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 25%;
+            column-gap: 10px;
+            align-items: start;
         }
+
         .details-table {
-            width: 70%;
+            width: 100%;
             border-collapse: collapse;
+            table-layout: fixed;
         }
+
         .details-table td {
-            padding: 8px 0;
+            padding: 6px 0;
             font-size: 13px;
+            line-height: 1.2;
             vertical-align: top;
             color: #000;
+            overflow-wrap: anywhere;
         }
+
         .details-table td:first-child {
             font-weight: bold;
             width: 35%;
+            padding-right: 8px;
+            overflow-wrap: normal;
         }
+
         .photo-box-container {
-            width: 25%;
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: flex-end;
-            padding-top: 10px;
+            padding-top: 2px;
         }
+
         .photo-box {
             width: 130px;
             max-width: 100%;
@@ -123,6 +146,7 @@
             color: #1976d2;
             font-size: 18px;
         }
+
         .sign-box {
             width: 130px;
             max-width: 100%;
@@ -134,26 +158,72 @@
             color: #1976d2;
             font-size: 18px;
         }
+
         .footer {
             text-align: center;
             color: #d32f2f;
             font-weight: bold;
             font-size: 20px;
-            margin-top: 25px;
-        }
-        .footer-divider {
-            border-top: 1px solid #283593;
-            margin-top: 10px;
+            margin-top: 20px;
         }
 
-        /* Responsive layout: keeps the same section positions and overall format */
-        @media (max-width: 600px) {
+        .footer-divider {
+            border-top: 1px solid #283593;
+            margin-top: 8px;
+        }
+
+        /* Tablet */
+        @media (max-width: 700px) {
             body {
-                padding: 10px;
+                padding: 12px 8px;
             }
 
             .card-container {
-                padding: 18px 15px;
+                width: 100%;
+                padding: 16px 14px 20px;
+            }
+
+            .college-info h1 {
+                font-size: 19px;
+            }
+
+            .college-info h2 {
+                font-size: 16px;
+            }
+
+            .sub-header {
+                font-size: 12px;
+                margin-top: 12px;
+            }
+
+            .details-table td {
+                font-size: 12px;
+                padding: 5px 0;
+            }
+
+            .photo-box {
+                width: 115px;
+                height: 130px;
+            }
+
+            .sign-box {
+                width: 115px;
+                height: 32px;
+            }
+        }
+
+        /* Phone: keep the exact same two-column format as the reference,
+           only reducing dimensions and font sizes. */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px 5px;
+                align-items: flex-start;
+            }
+
+            .card-container {
+                width: 100%;
+                padding: 12px 10px 16px;
+                box-shadow: 0 2px 7px rgba(0,0,0,0.10);
             }
 
             .header {
@@ -161,82 +231,93 @@
             }
 
             .logo {
-                width: 55px;
-                height: 70px;
-                flex-shrink: 0;
+                width: 62px;
+                height: 82px;
+                flex-basis: 62px;
             }
 
-            .logo img {
-                width: 55px;
-                height: 55px;
+            .college-info {
+                padding: 0 4px;
             }
 
             .college-info h1 {
-                font-size: clamp(14px, 4.2vw, 22px);
-                line-height: 1.2;
+                font-size: clamp(14px, 4.7vw, 18px);
+                line-height: 1.12;
+                margin-bottom: 3px;
             }
 
             .college-info h2 {
-                font-size: clamp(12px, 3.5vw, 18px);
+                font-size: clamp(13px, 4.1vw, 16px);
             }
 
             .sub-header {
-                font-size: clamp(10px, 3vw, 13px);
-                margin-top: 12px;
+                font-size: 11px;
+                margin-top: 11px;
                 margin-bottom: 8px;
+                line-height: 1.25;
             }
 
             .divider {
                 margin-bottom: 10px;
             }
 
+            .content {
+                grid-template-columns: minmax(0, 1fr) 28%;
+                column-gap: 7px;
+            }
+
             .details-table td {
-                font-size: clamp(10px, 2.8vw, 13px);
-                padding: 6px 0;
-                overflow-wrap: anywhere;
+                font-size: 10.5px;
+                line-height: 1.25;
+                padding: 4px 0;
             }
 
             .details-table td:first-child {
-                width: 35%;
-                padding-right: 6px;
+                width: 40%;
+                padding-right: 5px;
+                white-space: nowrap;
+                overflow-wrap: normal;
             }
 
             .photo-box-container {
-                padding-top: 6px;
+                padding-top: 1px;
             }
 
             .photo-box {
-                width: clamp(85px, 22vw, 130px);
-                height: clamp(100px, 25vw, 150px);
-                font-size: clamp(14px, 4vw, 18px);
+                width: 100%;
+                height: 108px;
+                min-width: 80px;
+                margin-bottom: 4px;
+                font-size: 14px;
             }
 
             .sign-box {
-                width: clamp(85px, 22vw, 130px);
-                height: clamp(28px, 7vw, 35px);
-                font-size: clamp(14px, 4vw, 18px);
+                width: 100%;
+                height: 29px;
+                min-width: 80px;
+                font-size: 14px;
             }
 
             .footer {
-                font-size: clamp(16px, 5vw, 20px);
-                margin-top: 18px;
+                font-size: 18px;
+                margin-top: 14px;
+            }
+
+            .footer-divider {
+                margin-top: 7px;
             }
         }
 
         @media (max-width: 360px) {
             .card-container {
-                padding-left: 10px;
-                padding-right: 10px;
+                padding-left: 8px;
+                padding-right: 8px;
             }
 
             .logo {
-                width: 48px;
-                height: 62px;
-            }
-
-            .logo img {
-                width: 48px;
-                height: 48px;
+                width: 56px;
+                height: 76px;
+                flex-basis: 56px;
             }
 
             .college-info h1 {
@@ -244,24 +325,25 @@
             }
 
             .college-info h2 {
-                font-size: 11px;
+                font-size: 12px;
             }
 
             .details-table td {
-                font-size: 9px;
+                font-size: 9.5px;
             }
 
             .photo-box {
-                width: 80px;
-                height: 95px;
+                height: 98px;
             }
 
             .sign-box {
-                width: 80px;
-                height: 26px;
+                height: 27px;
+            }
+
+            .footer {
+                font-size: 17px;
             }
         }
-
     </style>
 </head>
 <body>
@@ -269,7 +351,7 @@
 <div class="card-container">
     <div class="header">
         <div class="logo">
-            <img src="logo.png" width="100" height="100">
+            <img src="logo.png" alt="DAV College Logo">
         </div>
         <div class="college-info">
             <h1>DAV COLLEGE, SECTOR 10, CHANDIGARH</h1>
